@@ -1,0 +1,49 @@
+﻿<Page x:Class="Diplom1.Pages.ListSupplier"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diplom1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Список поставщиков">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/images/211.jpg"/>
+        </Grid.Background>
+        <StackPanel>
+            <StackPanel  Orientation="Horizontal">
+                <Button Margin="10" x:Name="BackBtn" Content = "Назад" Click="BackBtn_Click"    />
+                <Button x:Name="DelkBtn"  Content="Удалить" Margin="10" Click="DelkBtn_Click"   />
+                <Button Name="BtnD" Content="Добавить" Margin="10" Click="BtnD_Click"/>
+                <Button Margin="10" Content="Обновить" Click="Button_Click"  />
+                <Label Content="Поиск" Margin="10" Foreground="White"/>
+                <TextBox x:Name="Txb" Margin="10" TextWrapping="Wrap" Text="" Width="100" TextChanged="Txb_TextChanged" />
+            </StackPanel>
+            <DataGrid x:Name="DG" AutoGenerateColumns="False" SelectionChanged="DG_SelectionChanged">
+                <DataGrid.Columns>
+                    <!--<DataGridTextColumn Width="25" Header="№" Binding="{Binding IdSupplier}"/>-->
+                    <DataGridTextColumn Width="*" Header="Продавец" Binding="{Binding Name}"/>
+                    <DataGridTextColumn  Width="*" Header="Директор" Binding="{Binding Director }"/>
+                    <DataGridTextColumn  Width="*" Header="Телефон" Binding="{Binding Telefone }"/>
+                    <DataGridTextColumn  Width="*" Header="Адрес" Binding="{Binding Address }"/>
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="BtnR"  Content="Редактировать"  Click="BtnR_Click"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="BtnP" Content="Перейти"  Click="BtnP_Click"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Page>
